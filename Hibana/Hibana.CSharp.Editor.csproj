@@ -97,6 +97,10 @@
       <Project>{261149F5-B4BB-B103-C77B-6E7009351885}</Project>
       <Name>Hibana.CSharp.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="Hibana.CSharp.csproj">
+      <Project>{C59C832F-E11E-2C34-54FD-9D56E17D4A46}</Project>
+      <Name>Hibana.CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />

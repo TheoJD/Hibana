@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuSelection : MonoBehaviour {
 
+
 	public void LoadGame()
     {
 //        SceneManager.LoadScene("scene1");
@@ -32,5 +33,10 @@ public class MenuSelection : MonoBehaviour {
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ResumeGame()
+    {
+        
     }
 }

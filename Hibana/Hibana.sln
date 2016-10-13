@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hibana.CSharp.Plugins", "Hibana.CSharp.Plugins.csproj", "{261149F5-B4BB-B103-C77B-6E7009351885}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hibana.CSharp", "Hibana.CSharp.csproj", "{C59C832F-E11E-2C34-54FD-9D56E17D4A46}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hibana.CSharp.Editor", "Hibana.CSharp.Editor.csproj", "{2FF0DF40-FA5F-4EC7-A3C3-F84CE95F003B}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{261149F5-B4BB-B103-C77B-6E7009351885}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{261149F5-B4BB-B103-C77B-6E7009351885}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{261149F5-B4BB-B103-C77B-6E7009351885}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59C832F-E11E-2C34-54FD-9D56E17D4A46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59C832F-E11E-2C34-54FD-9D56E17D4A46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59C832F-E11E-2C34-54FD-9D56E17D4A46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59C832F-E11E-2C34-54FD-9D56E17D4A46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2FF0DF40-FA5F-4EC7-A3C3-F84CE95F003B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FF0DF40-FA5F-4EC7-A3C3-F84CE95F003B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF0DF40-FA5F-4EC7-A3C3-F84CE95F003B}.Release|Any CPU.ActiveCfg = Release|Any CPU
