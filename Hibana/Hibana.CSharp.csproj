@@ -72,6 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\MenuSelection.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\ScreenFader.cs" />

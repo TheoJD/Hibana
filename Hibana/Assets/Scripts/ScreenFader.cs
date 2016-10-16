@@ -5,7 +5,7 @@ public class ScreenFader : MonoBehaviour {
 
     // [Header("Fading In & Out")]
     public Texture2D blackTexture;
-    public const float fadeSpeed = 0.1f;
+    public const float fadeSpeed = 0.2f;
 
     private float actualSpeed = fadeSpeed;
     private int drawDepth = -1000;
