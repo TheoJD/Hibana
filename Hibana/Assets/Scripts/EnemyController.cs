@@ -1,54 +1,58 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets._2D
 {
     [RequireComponent(typeof(PlatformerCharacter2D))]
     public class EnemyController : MonoBehaviour
     {
-        public bool _playerDetected = true;
-        private bool _canJump = false;
+        public bool _isPlayerDetected = false;
+        public float _jumpDelay = 2.0f;
+        private float _nextJump;
         private PlatformerCharacter2D _character;
         public Transform _playerTransform;
-        // Use this for initialization
+
         void Start()
         {
             _character = GetComponent<PlatformerCharacter2D>();
-            StartCoroutine(WaitForJump());
+            _nextJump = Time.time + _jumpDelay;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void FixedUpdate()
         {
-            if (_playerDetected)
+            float direction;
+            Vector3 distance;
+            bool jump;
+            if (_isPlayerDetected)
             {
-                float direction = Random.Range(0.0f,1.0f);
-                bool jump = false;
-                Vector3 distance = _playerTransform.position - transform.position;
+                direction = Random.Range(0.0f, 1.0f);
+                distance = _playerTransform.position - transform.position;
+                jump = false;
                 if (distance.x < 0)
                     direction = Random.Range(-1.0f, 0.0f);
-                if (_canJump && distance.y > 1)
+                if ((distance.y > 1) && (_nextJump <= Time.time))
                 {
                     jump = true;
-                    _canJump = false;
-                    Debug.Log("Gonna Jump");
+                    _nextJump = Time.time + _jumpDelay;
+//                    Debug.Log("Gonna Jump " + Time.time);
                 }
                 _character.Move(direction, false, jump);
             }
-        }
-
-        IEnumerator WaitForJump()
-        {
-            while (true)
+            else
             {
-                if (!_canJump)
-                {
-                    _canJump = true;
-                    Debug.Log("Enabling jump");
-                    yield return new WaitForSeconds(2);
-                }
+                _character.Move(0, false, false);
             }
         }
+        
+        void PlayerDetected(bool detected)
+        {
+            _isPlayerDetected = detected;
+        }
+
+  /*      void PlayerVanished()
+        {
+            _isPlayerDetected = false;
+            Debug.Log("Vanished");
+        }*/
     }
 }
