@@ -18,14 +18,24 @@ Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\Unit
 Loading C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.057 seconds
+- Completed reload, in  0.050 seconds
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.712469 ms
+UnloadTime: 0.715890 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.983583 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 695.
+Total: 0.317745 ms (FindLiveObjects: 0.031646 ms CreateObjectMapping: 0.028652 ms MarkObjects: 0.242906 ms  DeleteObjects: 0.014112 ms)
+
+Tree burned 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 128c -> priority: 1 
-  Thread -> id: 17ac -> priority: 1 
+  Thread -> id: 71c -> priority: 1 
+  Thread -> id: 26a8 -> priority: 1 
