@@ -9,16 +9,12 @@ public class FloraAndFauna : MonoBehaviour {
     public Text _beastText;
     public void TreeBurned()
     {
-        ++_numberOfTreesBurned;
-        _treeText.text = _numberOfTreesBurned.ToString();
-//        Debug.Log("Tree burned " + _numberOfTreesBurned);
+        GameManager.GetInstance().TreeBurned();
     }
 
     public void BeastKilled()
     {
-        ++_numberOfBeastsKilled;
-        _beastText.text = _numberOfBeastsKilled.ToString();
-//        Debug.Log("Beast Killed " + _numberOfBeastsKilled);
+        GameManager.GetInstance().BeastKilled();
     }
 
     public int FloraAndFaunaDestuctionIndex()

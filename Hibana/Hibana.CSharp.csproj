@@ -72,18 +72,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BeastController.cs" />
     <Compile Include="Assets\Scripts\BeastHealth.cs" />
     <Compile Include="Assets\Scripts\Detection.cs" />
-    <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\FireShot.cs" />
     <Compile Include="Assets\Scripts\FloraAndFauna.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\HibanaController.cs" />
+    <Compile Include="Assets\Scripts\LoadFire.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />
     <Compile Include="Assets\Scripts\MenuSelection.cs" />
-    <Compile Include="Assets\Scripts\OnFire.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
     <Compile Include="Assets\Scripts\ScreenFader.cs" />
     <Compile Include="Assets\Scripts\TimeBeforeFade.cs" />
+    <Compile Include="Assets\Scripts\TreeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />

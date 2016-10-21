@@ -127,6 +127,5 @@ namespace UnityStandardAssets._2D
         {
             return m_FacingRight;
         }
-
     }
 }

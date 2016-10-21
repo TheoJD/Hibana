@@ -7,7 +7,8 @@ public class MenuSelection : MonoBehaviour {
 
 	public void LoadGame()
     {
-//        SceneManager.LoadScene("scene1");
+        GameManager.GetInstance().Load();
+        SceneManager.LoadScene(GameManager.GetInstance().GetCurrentScene());
     }
 
     public void LoadBegin()

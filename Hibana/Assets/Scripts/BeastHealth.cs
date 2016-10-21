@@ -11,8 +11,7 @@ public class BeastHealth : MonoBehaviour {
         _currentHealth -= amount;
         if (_currentHealth <= 0)
         {
-            Debug.Log("Beast Killed");
-            SendMessageUpwards("BeastKilled");
+            GameManager.GetInstance().BeastKilled();
             Destroy(gameObject, 1.0f);
         }
     }
