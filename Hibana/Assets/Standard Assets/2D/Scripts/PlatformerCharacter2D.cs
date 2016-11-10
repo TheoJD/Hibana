@@ -56,7 +56,7 @@ namespace UnityStandardAssets._2D
         }
 
 
-        public void Move(float move, bool crouch, bool jump)
+        public void Move(float move, bool crouch, bool jump, bool attack)
         {
             // If crouching, check to see if the character can stand up
             if (!crouch && m_Anim.GetBool("Crouch"))
@@ -108,6 +108,16 @@ namespace UnityStandardAssets._2D
             {
                 m_Rigidbody2D.AddForce(new Vector2(0f, m_DoubleJumpForce));
                 m_DoubleJumpEnable = false;
+            }
+
+            // If the player should attack...
+            if (attack && !m_Anim.GetBool("Attack"))
+            {
+                m_Anim.SetBool("Attack", true);
+            }
+            else
+            {
+                m_Anim.SetBool("Attack", false);
             }
         }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     static GameManager _instance;
@@ -55,7 +56,7 @@ public class GameManager : MonoBehaviour {
         _currentHealth -= amount;
         if (_currentHealth <= 0)
         {
-            Debug.Log("Game Over !");
+            Load();
         }
         if (_hud != null)
         {
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour {
                 _currentScene = playerData.currentScene;
                 _loads = playerData.loads;
             }
+            SceneManager.LoadScene(_currentScene);
         }
     }
 }
