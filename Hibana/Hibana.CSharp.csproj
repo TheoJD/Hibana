@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\BeastController.cs" />
     <Compile Include="Assets\Scripts\BeastHealth.cs" />
+    <Compile Include="Assets\Scripts\BushController.cs" />
     <Compile Include="Assets\Scripts\Detection.cs" />
     <Compile Include="Assets\Scripts\FireShot.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
