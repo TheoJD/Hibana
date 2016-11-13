@@ -9,21 +9,16 @@ public class HibanaController : UnityStandardAssets._2D.Platformer2DUserControl
     public int _fireSpeed = 6;
     public float _timeBetweenFires = 1.0f;
     public float _fireTimeOfLife = 1.0f;
-    public int _loads = 5;
-    // Use this for initialization
+
     void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	override protected void Update () {
         base.Update();
-        if (_canFire)
+        if (_canFire && Input.GetMouseButtonDown(0) && GameManager.GetInstance().getLoads() > 0)
         {
-            if (Input.GetMouseButtonDown(0) && _loads > 0)
-            {
-                StartCoroutine(Fire());
-            }
+            StartCoroutine(Fire());
         }
     }
     

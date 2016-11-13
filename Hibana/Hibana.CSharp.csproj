@@ -76,10 +76,8 @@
     <Compile Include="Assets\Scripts\BeastHealth.cs" />
     <Compile Include="Assets\Scripts\Detection.cs" />
     <Compile Include="Assets\Scripts\FireShot.cs" />
-    <Compile Include="Assets\Scripts\FloraAndFauna.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
-    <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\HibanaController.cs" />
     <Compile Include="Assets\Scripts\LoadFire.cs" />
     <Compile Include="Assets\Scripts\LoadScene.cs" />

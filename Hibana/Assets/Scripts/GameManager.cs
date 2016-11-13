@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int _numberOfBeastsKilled;
     [SerializeField] private const int _maxHealth = 100;
     [SerializeField] private int _currentHealth = _maxHealth;
+    [SerializeField] private const int _maxLoads = 5;
     [SerializeField] private int _loads = 5;
     [SerializeField] private string _currentScene = "scene1";
     [SerializeField] private const string _playerTag = "Player";
     [SerializeField] private const string _treeTag = "Tree";
     [SerializeField] private const string _beastTag = "Enemy";
     [SerializeField] private const string _fireTag = "Fire";
+    [SerializeField] private const string _groundTag = "Ground";
     private HUD _hud;
 
     void Awake ()
@@ -54,19 +56,33 @@ public class GameManager : MonoBehaviour {
     public void TakeDamage(int amount)
     {
         _currentHealth -= amount;
+        _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
         if (_currentHealth <= 0)
         {
             Load();
-        }
-        if (_hud != null)
-        {
-            _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
         }
     }
 
     public void LoadMunition(int munitions)
     {
         _loads += munitions;
+        if (_loads > _maxLoads)
+        {
+            _loads = _maxLoads;
+        }
+        else if (_loads < 0 )
+        {
+            _loads = 0;
+        }
+        if (_hud != null)
+        {
+            _hud._loadsBar.fillAmount = (float)_loads / (float)_maxLoads;
+        }
+    }
+
+    public int getLoads()
+    {
+        return _loads;
     }
 
     public string GetCurrentScene()
@@ -94,6 +110,7 @@ public class GameManager : MonoBehaviour {
         _hud = hud;
         if (_hud != null)
         {
+            _hud._loadsBar.fillAmount = (float)_loads / (float)_maxLoads;
             _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
             _hud._treeText.text = _numberOfTreesBurned.ToString();
             _hud._beastText.text = _numberOfBeastsKilled.ToString();
@@ -131,6 +148,7 @@ public class GameManager : MonoBehaviour {
                 _currentScene = playerData.currentScene;
                 _loads = playerData.loads;
             }
+            SetHUD(_hud);
             SceneManager.LoadScene(_currentScene);
         }
     }

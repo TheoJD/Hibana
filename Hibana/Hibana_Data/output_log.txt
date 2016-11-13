@@ -18,32 +18,32 @@ Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\Unit
 Loading C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.054 seconds
+- Completed reload, in  0.045 seconds
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Théo\Desktop\Hibana\Hibana\Hibana_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.694935 ms
+UnloadTime: 0.749675 ms
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.790284 ms
+UnloadTime: 4.660990 ms
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 766.
-Total: 0.368208 ms (FindLiveObjects: 0.032073 ms CreateObjectMapping: 0.030363 ms MarkObjects: 0.290376 ms  DeleteObjects: 0.014967 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.549961 ms
-
-Unloading 155 unused Assets to reduce memory usage. Loaded Objects now: 368.
-Total: 0.523019 ms (FindLiveObjects: 0.029935 ms CreateObjectMapping: 0.024376 ms MarkObjects: 0.226228 ms  DeleteObjects: 0.242051 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 788.
+Total: 0.363077 ms (FindLiveObjects: 0.035067 ms CreateObjectMapping: 0.029508 ms MarkObjects: 0.282678 ms  DeleteObjects: 0.015395 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.834350 ms
+UnloadTime: 0.779611 ms
 
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 368.
-Total: 0.257874 ms (FindLiveObjects: 0.015395 ms CreateObjectMapping: 0.022237 ms MarkObjects: 0.216392 ms  DeleteObjects: 0.003421 ms)
+Unloading 155 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 0.546540 ms (FindLiveObjects: 0.023093 ms CreateObjectMapping: 0.016250 ms MarkObjects: 0.250604 ms  DeleteObjects: 0.255736 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.953238 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 378.
+Total: 0.295935 ms (FindLiveObjects: 0.021382 ms CreateObjectMapping: 0.024376 ms MarkObjects: 0.246328 ms  DeleteObjects: 0.003421 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: b30 -> priority: 1 
-  Thread -> id: 3084 -> priority: 1 
+  Thread -> id: 22cc -> priority: 1 
+  Thread -> id: 11b4 -> priority: 1 
