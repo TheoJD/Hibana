@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     static GameManager _instance;
-    [SerializeField] private int _numberOfTreesBurned;
-    [SerializeField] private int _numberOfBeastsKilled;
+    [SerializeField] private int _numberOfTrees = 0;
+    [SerializeField] private int _numberOfTreesBurned = 0;
+    [SerializeField] private int _numberOfBeasts = 0;
+    [SerializeField] private int _numberOfBeastsKilled = 0;
     [SerializeField] private const int _maxHealth = 100;
     [SerializeField] private int _currentHealth = _maxHealth;
     [SerializeField] private const int _maxLoads = 5;
@@ -38,12 +40,22 @@ public class GameManager : MonoBehaviour {
     {
         return _instance;
     }
+
+    public void NewTree()
+    {
+        ++_numberOfTrees;
+    }
 	
     public void TreeBurned()
     {
         ++_numberOfTreesBurned;
         if (_hud != null)
             _hud._treeText.text = _numberOfTreesBurned.ToString();
+    }
+
+    public void NewBeast()
+    {
+        ++_numberOfBeasts;
     }
 
     public void BeastKilled()
@@ -117,16 +129,24 @@ public class GameManager : MonoBehaviour {
         }
     }
 
-    public void Save()
+    public void SetHUDLoadWait(float amount)
+    {
+        _hud._loadsWait.fillAmount = amount;
+    }
+
+    public void Save(string scene)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gameInfo.gd");
-
+        Debug.Log("Arbres : " + _numberOfTrees);
+        Debug.Log("Betes : " + _numberOfBeasts);
         PlayerData playerData = new PlayerData();
+        playerData.numberOfTrees = _numberOfTrees;
         playerData.numberOfTreesBurned = _numberOfTreesBurned;
+        playerData.numberOfBeasts = _numberOfBeasts;
         playerData.numberOfBeastsKilled = _numberOfBeastsKilled;
         playerData.currentHealth = _currentHealth;
-        playerData.currentScene = _currentScene;
+        playerData.currentScene = scene;
         playerData.loads = _loads;
 
         bf.Serialize(file, playerData);
@@ -142,8 +162,10 @@ public class GameManager : MonoBehaviour {
             PlayerData playerData = (PlayerData)bf.Deserialize(file);
             if (playerData != null)
             {
-                _numberOfBeastsKilled = playerData.numberOfBeastsKilled;
+                _numberOfTrees = playerData.numberOfTrees;
                 _numberOfTreesBurned = playerData.numberOfTreesBurned;
+                _numberOfBeasts = playerData.numberOfBeasts;
+                _numberOfBeastsKilled = playerData.numberOfBeastsKilled;
                 _currentHealth = playerData.currentHealth;
                 _currentScene = playerData.currentScene;
                 _loads = playerData.loads;
@@ -157,7 +179,9 @@ public class GameManager : MonoBehaviour {
 [System.Serializable]
 class PlayerData
 {
+    public int numberOfTrees;
     public int numberOfTreesBurned;
+    public int numberOfBeasts;
     public int numberOfBeastsKilled;
     public int currentHealth;
     public string currentScene;

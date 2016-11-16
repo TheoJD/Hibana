@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HibanaController : UnityStandardAssets._2D.Platformer2DUserControl
 {
@@ -32,7 +33,13 @@ public class HibanaController : UnityStandardAssets._2D.Platformer2DUserControl
         fire.GetComponent<Rigidbody2D>().velocity = direction * _fireSpeed;
         Destroy(fire, _fireTimeOfLife);
         GameManager.GetInstance().LoadMunition(-1);
-        yield return new WaitForSeconds(_timeBetweenFires);
+        float _subTime = _timeBetweenFires / 100f;
+        GameManager.GetInstance().SetHUDLoadWait(0f);
+        for (float i=0.01f; i<=1f; i+=0.01f)
+        {
+            yield return new WaitForSeconds(_subTime);
+            GameManager.GetInstance().SetHUDLoadWait(i);
+        }
         _canFire = true;
     }
 }

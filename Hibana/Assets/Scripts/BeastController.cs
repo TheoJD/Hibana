@@ -22,6 +22,7 @@ public class BeastController : MonoBehaviour
         _character = GetComponent<PlatformerCharacter2D>();
         _nextJump = Time.time + _jumpDelay;
         _nextAttack = Time.time + _attackDelay;
+        GameManager.GetInstance().NewBeast();
     }
 
     private void FixedUpdate()

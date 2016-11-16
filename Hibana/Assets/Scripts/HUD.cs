@@ -7,6 +7,7 @@ public class HUD : MonoBehaviour
     static HUD _instance;
     public Image _healthBar;
     public Image _loadsBar;
+    public Image _loadsWait;
     public Text _beastText;
     public Text _treeText;
     void Awake()
