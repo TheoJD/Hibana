@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private const string _fireTag = "Fire";
     [SerializeField] private const string _groundTag = "Ground";
     private HUD _hud;
+    private AudioSource _fireSource;
 
     void Awake ()
     {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
         {
             DontDestroyOnLoad(gameObject);
             _instance = this;
+            _fireSource = GetComponent<AudioSource>();
         }
         else if (_instance != this)
         {
@@ -48,6 +50,8 @@ public class GameManager : MonoBehaviour {
 	
     public void TreeBurned()
     {
+        if (_fireSource != null && _fireSource.volume < 1)
+            _fireSource.volume += 0.04f;
         ++_numberOfTreesBurned;
         if (_hud != null)
             _hud._treeText.text = _numberOfTreesBurned.ToString();
@@ -68,7 +72,8 @@ public class GameManager : MonoBehaviour {
     public void TakeDamage(int amount)
     {
         _currentHealth -= amount;
-        _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
+        if (_hud)
+            _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
         if (_currentHealth <= 0)
         {
             Load();
@@ -131,15 +136,14 @@ public class GameManager : MonoBehaviour {
 
     public void SetHUDLoadWait(float amount)
     {
-        _hud._loadsWait.fillAmount = amount;
+        if (_hud != null)
+            _hud._loadsWait.fillAmount = amount;
     }
 
     public void Save(string scene)
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gameInfo.gd");
-        Debug.Log("Arbres : " + _numberOfTrees);
-        Debug.Log("Betes : " + _numberOfBeasts);
         PlayerData playerData = new PlayerData();
         playerData.numberOfTrees = _numberOfTrees;
         playerData.numberOfTreesBurned = _numberOfTreesBurned;
@@ -171,6 +175,10 @@ public class GameManager : MonoBehaviour {
                 _loads = playerData.loads;
             }
             SetHUD(_hud);
+            _fireSource.volume = 0;
+            if (_hud != null)
+                _hud.BeVisible(_currentScene != "menu");
+
             SceneManager.LoadScene(_currentScene);
         }
     }

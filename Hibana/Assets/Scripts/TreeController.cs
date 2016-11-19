@@ -5,7 +5,6 @@ public class TreeController : MonoBehaviour {
 
     public GameObject _firePrefab;
     private bool _onFire = false;
-    public AudioSource _fireSound;
 
     void Start()
     {
@@ -16,14 +15,14 @@ public class TreeController : MonoBehaviour {
     {
         if (!_onFire)
         {
+            GameObject fire;
             Vector3 origin = transform.position;
             origin.y = y;
             origin.z -= 1;
-            Instantiate(_firePrefab, origin, transform.rotation);
+            fire = Instantiate(_firePrefab, origin, transform.rotation) as GameObject;
+            fire.transform.parent = transform;
             _onFire = true;
             GameManager.GetInstance().TreeBurned();
-            if (_fireSound != null && _fireSound.volume < 1)
-                _fireSound.volume += 0.05f;
         }
     }
 }

@@ -26,4 +26,9 @@ public class HUD : MonoBehaviour
     {
         GameManager.GetInstance().SetHUD(this);
     }
+
+    public void BeVisible(bool visible)
+    {
+        gameObject.SetActive(visible);
+    }
 }

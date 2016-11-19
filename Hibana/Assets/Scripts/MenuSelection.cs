@@ -13,7 +13,7 @@ public class MenuSelection : MonoBehaviour {
     public void LoadBegin()
     {
         GameManager.GetInstance().Save(_beginScene);
-        SceneManager.LoadScene(_beginScene);
+        GameManager.GetInstance().Load();
     }
 
     public void LoadTutorial()

@@ -11,7 +11,7 @@ public class LoadScene : MonoBehaviour {
         if (other.tag == GameManager.GetInstance().GetPlayerTag())
         {
             GameManager.GetInstance().Save(_sceneToLoad);
-            SceneManager.LoadScene(_sceneToLoad);
+            GameManager.GetInstance().Load();
         }
     }
 }

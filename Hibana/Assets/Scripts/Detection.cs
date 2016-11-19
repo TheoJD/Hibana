@@ -7,7 +7,7 @@ public class Detection : MonoBehaviour {
     {
         if (collider.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
         {
-            this.SendMessageUpwards("PlayerDetected", true);
+            this.SendMessageUpwards("PlayerDetected", collider.gameObject.transform);
         }
     }
 
@@ -15,7 +15,7 @@ public class Detection : MonoBehaviour {
     {
         if (collider.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
         {
-            this.SendMessageUpwards("PlayerDetected", false);
+            this.SendMessageUpwards("PlayerRunAway");
         }
     }
 }

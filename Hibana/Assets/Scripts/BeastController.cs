@@ -9,17 +9,18 @@ public class BeastController : MonoBehaviour
     private float _nextJump;
     public float _attackDelay = 2.0f;
     private float _nextAttack;
-    public float _attackMagnitude = 1.0f;
+    public float _attackMagnitude = 0.2f;
     public int _attackPower = 10;
-    private PlatformerCharacter2D _character;
-    public Transform _playerTransform;
+    private BeastCharacter _character;
+    private Transform _playerTransform;
     private float direction;
     private Vector3 distance;
     private bool jump;
+    private bool _isPlayerClosed = false;
 
     void Start()
     {
-        _character = GetComponent<PlatformerCharacter2D>();
+        _character = GetComponent<BeastCharacter>();
         _nextJump = Time.time + _jumpDelay;
         _nextAttack = Time.time + _attackDelay;
         GameManager.GetInstance().NewBeast();
@@ -33,24 +34,38 @@ public class BeastController : MonoBehaviour
         }
         else
         {
-            _character.Move(0, false, false, false);
+            _character.Move(0, false, false);
         }
     }
 
-    void PlayerDetected(bool detected)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        _isPlayerDetected = detected;
+        if (collision.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
+            _isPlayerClosed = true;
     }
 
-    bool isPlayerClosed (double magnitude)
+    void OnCollisionExit2D(Collision2D collision)
     {
-        return (magnitude <= _attackMagnitude);
+        if (collision.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
+            _isPlayerClosed = false;
+    }
+
+    void PlayerDetected(Transform playerTransform)
+    {
+        _isPlayerDetected = true;
+        _playerTransform = playerTransform;
+    }
+
+    void PlayerRunAway()
+    {
+        _isPlayerDetected = false;
+        _playerTransform = null;
     }
 
     void Purchase()
     {
         distance = _playerTransform.position - transform.position;
-        if (isPlayerClosed(distance.magnitude))
+        if (_isPlayerClosed)
         {
             bool attack = false;
             if (_nextAttack <= Time.time)
@@ -59,19 +74,19 @@ public class BeastController : MonoBehaviour
                 _nextAttack = Time.time + _attackDelay;
                 attack = true;
             }
-            _character.Move(0, false, false, attack);
+            _character.Move(0, false, attack);
         }
         else
         {
             jump = false;
             direction = Random.Range(0.0f, 1.0f);
             if (distance.x < 0) direction = -direction;
-            if ((distance.y > 1) && (_nextJump <= Time.time))
+            if ((distance.y > 0.1f) && (_nextJump <= Time.time))
             {
                 jump = true;
                 _nextJump = Time.time + _jumpDelay;
             }
-            _character.Move(direction, false, jump, false);
+            _character.Move(direction, jump, false);
         }
     }
 }
