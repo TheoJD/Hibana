@@ -100,7 +100,6 @@ public class BeastCharacter : MonoBehaviour {
         // If the player should attack...
         if (attack && !m_Anim.GetBool("Attacking"))
         {
-            Debug.Log("Attacko !");
             m_Anim.SetBool("Attacking", true);
         }
         else
