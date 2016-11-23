@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour {
 
     public void Save(string scene)
     {
+        _currentScene = scene;
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/gameInfo.gd");
         PlayerData playerData = new PlayerData();
@@ -150,7 +151,7 @@ public class GameManager : MonoBehaviour {
         playerData.numberOfBeasts = _numberOfBeasts;
         playerData.numberOfBeastsKilled = _numberOfBeastsKilled;
         playerData.currentHealth = _currentHealth;
-        playerData.currentScene = scene;
+        playerData.currentScene = _currentScene;
         playerData.loads = _loads;
 
         bf.Serialize(file, playerData);
@@ -174,13 +175,37 @@ public class GameManager : MonoBehaviour {
                 _currentScene = playerData.currentScene;
                 _loads = playerData.loads;
             }
-            SetHUD(_hud);
-            _fireSource.volume = 0;
-            if (_hud != null)
-                _hud.BeVisible(_currentScene != "menu");
-
-            SceneManager.LoadScene(_currentScene);
         }
+        LoadNextScene();
+    }
+
+    private void LoadNextScene()
+    {
+        SetHUD(_hud);
+        _fireSource.volume = 0;
+        if (_hud != null)
+            _hud.BeVisible(_currentScene != "menu");
+        SceneManager.LoadScene(_currentScene);
+    }
+
+    public void SaveAndLoadNextScene(string scene)
+    {
+        Save(scene);
+        LoadNextScene();
+    }
+
+    public float BeastsRatio()
+    {
+        if (_numberOfBeasts > 0)
+            return (float)_numberOfBeastsKilled / (float)_numberOfBeasts;
+        return 0;
+    }
+
+    public float TreesRatio()
+    {
+        if (_numberOfTrees > 0)
+            return (float)_numberOfTreesBurned / (float)_numberOfTrees;
+        return 0;
     }
 }
 

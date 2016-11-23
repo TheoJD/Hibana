@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class MenuSelection : MonoBehaviour {
-    public string _beginScene = "scene1";
+    public string _beginScene = "introduction";
 
 	public void LoadGame()
     {
@@ -12,8 +12,7 @@ public class MenuSelection : MonoBehaviour {
 
     public void LoadBegin()
     {
-        GameManager.GetInstance().Save(_beginScene);
-        GameManager.GetInstance().Load();
+        GameManager.GetInstance().SaveAndLoadNextScene(_beginScene);
     }
 
     public void LoadTutorial()
