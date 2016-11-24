@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class MenuSelection : MonoBehaviour {
-    public string _beginScene = "introduction";
+    [SerializeField] private string _beginScene = "introduction";
 
 	public void LoadGame()
     {
@@ -20,14 +20,9 @@ public class MenuSelection : MonoBehaviour {
 //        SceneManager.LoadScene("tuto");
     }
 
-    public void LoadSynopsis()
-    {
-//        SceneManager.LoadScene("synopsis");
-    }
-
     public void LoadCredits()
     {
-//        SceneManager.LoadScene("credits");
+        SceneManager.LoadScene("credits");
     }
 
     public void Quit()
@@ -35,8 +30,8 @@ public class MenuSelection : MonoBehaviour {
         Application.Quit();
     }
 
-    public void ResumeGame()
+    public void LoadMenu()
     {
-        
+        SceneManager.LoadScene("menu");
     }
 }

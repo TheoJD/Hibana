@@ -7,7 +7,7 @@ public class HibanaCharacter : MonoBehaviour {
     [SerializeField] private float _jumpForce = 450f;                  // Amount of force added when the player jumps.
     [SerializeField] private float _doubleJumpForce = 400f;            // Amount of force added when the player double jumps.
     [SerializeField] private bool _airControl = true;                 // Whether or not a player can steer while jumping;
-    [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
+    [SerializeField] private LayerMask _whatIsGround;                  // A mask determining what is ground to the character
     [SerializeField] private bool _hasDoubleJump = true;
     [SerializeField] private AudioClip _jumpClip;
     [SerializeField] private AudioClip _doubleJumpClip;
@@ -40,7 +40,7 @@ public class HibanaCharacter : MonoBehaviour {
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_groundCheck.position, k_GroundedRadius, m_WhatIsGround);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_groundCheck.position, k_GroundedRadius, _whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Ground")

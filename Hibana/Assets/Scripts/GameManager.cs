@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour {
         SetHUD(_hud);
         _fireSource.volume = 0;
         if (_hud != null)
-            _hud.BeVisible(_currentScene != "menu");
+            _hud.BeVisible(_currentScene.Contains("scene"));
         SceneManager.LoadScene(_currentScene);
     }
 
