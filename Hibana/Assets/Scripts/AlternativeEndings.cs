@@ -21,7 +21,7 @@ public class AlternativeEndings : MonoBehaviour {
     public string _halfEnding;
     private State _faunaState = State.BAD;
     private State _floraState = State.BAD;
-    private State _globalState = State.BAD;
+    //private State _globalState = State.BAD;
     private TextController _textController;
     // Use this for initialization
     void Start () {

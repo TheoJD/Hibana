@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int _currentHealth = _maxHealth;
     [SerializeField] private const int _maxLoads = 5;
     [SerializeField] private int _loads = 5;
-    [SerializeField] private string _currentScene = "scene1";
+//    [SerializeField] private string _beginScene = "introduction";
+    [SerializeField] private string _currentScene = "menu";
     [SerializeField] private const string _playerTag = "Player";
     [SerializeField] private const string _treeTag = "Tree";
     [SerializeField] private const string _beastTag = "Enemy";
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
             _instance = this;
             _fireSource = GetComponent<AudioSource>();
+            _currentScene = SceneManager.GetActiveScene().name;
         }
         else if (_instance != this)
         {
@@ -79,7 +81,7 @@ public class GameManager : MonoBehaviour {
         _damagesSound.GetComponent<AudioSource>().Play();
         if (_currentHealth <= 0)
         {
-            Load();
+            LoadGame();
         }
     }
 
@@ -143,7 +145,7 @@ public class GameManager : MonoBehaviour {
             _hud._loadsWait.fillAmount = amount;
     }
 
-    public void Save(string scene)
+    public void SaveGame(string scene)
     {
         _currentScene = scene;
         BinaryFormatter bf = new BinaryFormatter();
@@ -161,7 +163,7 @@ public class GameManager : MonoBehaviour {
         file.Close();
     }
 
-    public void Load()
+    public void LoadGame()
     {
         if (File.Exists(Application.persistentDataPath + "/gameInfo.gd"))
         {
@@ -191,10 +193,22 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(_currentScene);
     }
 
+    public void LoadScene(string scene)
+    {
+        _currentScene = scene;
+        Time.timeScale = 1;
+        LoadNextScene();
+    }
+
     public void SaveAndLoadNextScene(string scene)
     {
-        Save(scene);
+        SaveGame(scene);
         LoadNextScene();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public float BeastsRatio()
