@@ -28,6 +28,8 @@ public class BeastController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.GetInstance().isControlEnable())
+            return;
         if (_isPlayerDetected)
         {
             Purchase();

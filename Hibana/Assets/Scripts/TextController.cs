@@ -45,7 +45,9 @@ public class TextController : MonoBehaviour {
 	
     IEnumerator NextScene()
     {
-        yield return new WaitForSeconds(39f);
+        yield return new WaitForSeconds(37f);
+        GetComponent<AudioFader>().Fade(-1);
+        yield return new WaitForSeconds(2f);
         GetComponent<ScreenFader>().Fade(1);
         yield return new WaitForSeconds(2f);
         GameManager.GetInstance().SaveAndLoadNextScene(_nextScene);

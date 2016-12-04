@@ -22,6 +22,8 @@ public class HibanaController : MonoBehaviour
 
     void Update ()
     {
+        if (!GameManager.GetInstance().isControlEnable())
+            return;
         if (!_jump)
         {
             // Read the jump input in Update so button presses aren't missed.
@@ -39,6 +41,8 @@ public class HibanaController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.GetInstance().isControlEnable())
+            return;
         // Read the inputs.
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
         // Pass all parameters to the character control script.

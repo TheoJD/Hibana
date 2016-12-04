@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AlternativeEndings.cs" />
+    <Compile Include="Assets\Scripts\AudioFader.cs" />
     <Compile Include="Assets\Scripts\BeastCharacter.cs" />
     <Compile Include="Assets\Scripts\BeastController.cs" />
     <Compile Include="Assets\Scripts\BeastHealth.cs" />
