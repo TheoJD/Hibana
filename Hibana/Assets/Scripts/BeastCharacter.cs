@@ -25,6 +25,7 @@ public class BeastCharacter : MonoBehaviour {
     private Animator _animator;            // Reference to the player's animator component.
     private Rigidbody2D _rigidbody;
     private bool _isFacingRight = true;  // For determining which way the player is currently facing.
+    private BeastHealth _healthScript;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class BeastCharacter : MonoBehaviour {
         //m_CeilingCheck = transform.Find("CeilingCheck");
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
+        _healthScript = GetComponent<BeastHealth>();
         _doubleJumpEnable = true;
     }
 
@@ -80,6 +82,7 @@ public class BeastCharacter : MonoBehaviour {
             else if (move < 0 && _isFacingRight)
             {
                 // ... flip the player.
+                _healthScript.Flip();
                 Flip();
             }
         }
