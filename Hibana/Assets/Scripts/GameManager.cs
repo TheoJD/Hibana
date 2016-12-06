@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private const string _groundTag = "Ground";
     [SerializeField] private GameObject _damagesSound;
     [SerializeField] private GameObject _fireShotSound;
+    private bool _controlEnable = true;
     private HUD _hud;
     private AudioSource _fireSource;
 
@@ -45,6 +46,16 @@ public class GameManager : MonoBehaviour {
     static public GameManager GetInstance()
     {
         return _instance;
+    }
+
+    public bool isControlEnable()
+    {
+        return _controlEnable;
+    }
+
+    public void EnableControl(bool enable=true)
+    {
+        _controlEnable = enable && !_controlEnable;
     }
 
     public void NewTree()

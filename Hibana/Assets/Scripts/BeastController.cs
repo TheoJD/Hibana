@@ -17,6 +17,7 @@ public class BeastController : MonoBehaviour
     private Vector3 distance;
     private bool jump;
     private bool _isPlayerClosed = false;
+    public GameObject _lifeHUD;
 
     void Start()
     {
@@ -28,6 +29,8 @@ public class BeastController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManager.GetInstance().isControlEnable())
+            return;
         if (_isPlayerDetected)
         {
             Purchase();
@@ -54,12 +57,14 @@ public class BeastController : MonoBehaviour
     {
         _isPlayerDetected = true;
         _playerTransform = playerTransform;
+        _lifeHUD.SetActive(true);
     }
 
     void PlayerRunAway()
     {
         _isPlayerDetected = false;
         _playerTransform = null;
+        _lifeHUD.SetActive(false);
     }
 
     void Purchase()
