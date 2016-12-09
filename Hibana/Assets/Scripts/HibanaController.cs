@@ -71,4 +71,5 @@ public class HibanaController : MonoBehaviour
         }
         _canFire = true;
     }
+    
 }

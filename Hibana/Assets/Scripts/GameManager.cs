@@ -23,8 +23,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private const string _fireTag = "Fire";
     [SerializeField] private const string _groundTag = "Ground";
     [SerializeField] private const string _bushTag = "Bush";
-    [SerializeField] private GameObject _damagesSound;
-    [SerializeField] private GameObject _fireShotSound;
+    [SerializeField] private AudioSource _damagesSound;
     private bool _controlEnable = true;
     private HUD _hud;
     private AudioSource _fireSource;
@@ -90,7 +89,7 @@ public class GameManager : MonoBehaviour {
         _currentHealth -= amount;
         if (_hud)
             _hud._healthBar.fillAmount = (float)_currentHealth / (float)_maxHealth;
-        _damagesSound.GetComponent<AudioSource>().Play();
+        _damagesSound.Play();
         if (_currentHealth <= 0)
         {
             LoadGame();
