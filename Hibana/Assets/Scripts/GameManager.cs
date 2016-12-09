@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private const string _beastTag = "Enemy";
     [SerializeField] private const string _fireTag = "Fire";
     [SerializeField] private const string _groundTag = "Ground";
+    [SerializeField] private const string _bushTag = "Bush";
     [SerializeField] private GameObject _damagesSound;
     [SerializeField] private GameObject _fireShotSound;
     private bool _controlEnable = true;
@@ -136,6 +137,11 @@ public class GameManager : MonoBehaviour {
     public string GetBeastTag()
     {
         return _beastTag;
+    }
+
+    public string GetBushTag()
+    {
+        return _bushTag;
     }
 
     public void SetHUD(HUD hud)

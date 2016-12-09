@@ -6,6 +6,15 @@ public class BushController : MonoBehaviour {
     private const float _timeBetweenDamages = 1.5f;
     private bool _canSting = true;
     private Coroutine _coroutine;
+    public GameObject _firePrefab;
+    private bool _onFire = false;
+    public bool _isPeripheral = false;
+
+    void Start()
+    {
+        if (!_isPeripheral)
+            GameManager.GetInstance().NewTree();
+    }
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -26,12 +35,26 @@ public class BushController : MonoBehaviour {
 
     private IEnumerator Sting()
     {
-        while (true)
+        while (!_onFire)
         {
             _canSting = false;
             GameManager.GetInstance().TakeDamage(_damages);
             yield return new WaitForSeconds(_timeBetweenDamages);
             _canSting = true;
+        }
+    }
+
+    public void OnFireShot()
+    {
+        if (!_onFire)
+        {
+            GameObject fire;
+            Vector3 origin = transform.position;
+            origin.z -= 1;
+            fire = Instantiate(_firePrefab, origin, transform.rotation) as GameObject;
+            fire.transform.parent = transform;
+            _onFire = true;
+            GameManager.GetInstance().TreeBurned();
         }
     }
 }

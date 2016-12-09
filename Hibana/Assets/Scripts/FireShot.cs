@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class FireShot : MonoBehaviour {
-    public int _damage = 2;
+    private int _damage = 1;
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.tag == GameManager.GetInstance().GetBeastTag())
@@ -20,6 +20,14 @@ public class FireShot : MonoBehaviour {
             if (controller != null)
             {
                 controller.OnFireShot(transform.position.y);
+            }
+        }
+        else if (collider.tag == GameManager.GetInstance().GetBushTag())
+        {
+            var controller = collider.gameObject.GetComponent<BushController>();
+            if (controller != null)
+            {
+                controller.OnFireShot();
             }
         }
     }

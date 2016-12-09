@@ -4,14 +4,15 @@ using System.Collections;
 
 public class BeastHealth : MonoBehaviour {
 
-    public const int _maxHealth = 5;
-    private int _currentHealth = _maxHealth;
+    public int _maxHealth = 5;
+    private int _currentHealth;
     private AudioSource _damagesSound;
     public Image _healthBar;
     private Vector3 _flipVector = new Vector3(0f, 0f, 180f);
 
     void Start()
     {
+        _currentHealth = _maxHealth;
         _damagesSound = GetComponent<AudioSource>();
     }
 

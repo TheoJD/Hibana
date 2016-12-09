@@ -20,6 +20,7 @@ public class LoadScene : MonoBehaviour {
         _camera.GetComponent<ScreenFader>().Fade(1);
         _camera.GetComponent<AudioFader>().Fade(-1);
         yield return new WaitForSeconds(2f);
+        GameManager.GetInstance().EnableControl(true);
         GameManager.GetInstance().SaveAndLoadNextScene(_sceneToLoad);
     }
 }
