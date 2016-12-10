@@ -26,7 +26,7 @@ public class BushController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.tag == GameManager.GetInstance().GetPlayerTag())
+        if (!_onFire && collider.tag == GameManager.GetInstance().GetPlayerTag())
         {
             StopCoroutine(_coroutine);
             _canSting = true;
@@ -54,6 +54,8 @@ public class BushController : MonoBehaviour {
             fire = Instantiate(_firePrefab, origin, transform.rotation) as GameObject;
             fire.transform.parent = transform;
             _onFire = true;
+            if (_isPeripheral)
+                GameManager.GetInstance().NewTree();
             GameManager.GetInstance().TreeBurned();
         }
     }

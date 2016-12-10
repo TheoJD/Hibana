@@ -12,7 +12,7 @@ public class FireShot : MonoBehaviour {
             {
                 health.TakeDamage(_damage);
             }
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else if (collider.tag == GameManager.GetInstance().GetTreeTag())
         {

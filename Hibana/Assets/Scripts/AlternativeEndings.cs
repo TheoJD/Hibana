@@ -45,7 +45,7 @@ public class AlternativeEndings : MonoBehaviour {
             _floraState = State.GOOD;
             _textController.ChangeParagraph(2, _floraGoodEnding);
         }
-        else if (treeRatio < 0.5)
+        else if (treeRatio < 0.4)
         {
             _floraState = State.HALF;
             _textController.ChangeParagraph(2, _floraHalfGoodEnding);
