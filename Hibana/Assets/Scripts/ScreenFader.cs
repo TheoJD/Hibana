@@ -24,20 +24,20 @@ public class ScreenFader : MonoBehaviour {
             _currentTexture = _blackTexture;
     }
 
-    public float Fade(int direction, float speed = _fadeSpeed)
+    public float Fade(int direction, bool change = false, float speed = _fadeSpeed)
     {
         _fadeDirection = direction;
         _actualSpeed = speed;
         if (_fadeDirection == -1)
         {
-            if (_fadeOutWhite)
+            if ((_fadeOutWhite && !change) || (!_fadeOutWhite && change))
                 _currentTexture = _whiteTexture;
             else
                 _currentTexture = _blackTexture;
         }
         else if (direction == 1)
         {
-            if (_fadeInWhite)
+            if ((_fadeInWhite && !change) || (!_fadeInWhite && change))
                 _currentTexture = _whiteTexture;
             else
                 _currentTexture = _blackTexture;

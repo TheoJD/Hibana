@@ -4,7 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuSelection : MonoBehaviour {
     [SerializeField] private string _beginScene = "introduction";
+    [SerializeField] private bool _change = false;
+    private AudioFader _audioFader = null;
+    private ScreenFader _screenFader = null;
     private float _wait = 2f;
+
+    void Start()
+    {
+        _audioFader = GetComponent<AudioFader>();
+        _screenFader = GetComponent<ScreenFader>();
+    }
+
 	public void LoadGame()
     {
         StartCoroutine(WaitLoadGame());
@@ -12,7 +22,7 @@ public class MenuSelection : MonoBehaviour {
 
     private IEnumerator WaitLoadGame()
     {
-        GetComponent<ScreenFader>().Fade(1);
+        _screenFader.Fade(1);
         yield return new WaitForSeconds(_wait);
         GameManager.GetInstance().LoadGame();
     }
@@ -24,7 +34,7 @@ public class MenuSelection : MonoBehaviour {
 
     private IEnumerator WaitBegin()
     {
-        GetComponent<ScreenFader>().Fade(1);
+        _screenFader.Fade(1);
         yield return new WaitForSeconds(_wait);
         GameManager.GetInstance().SaveAndLoadNextScene(_beginScene);
     }
@@ -36,20 +46,24 @@ public class MenuSelection : MonoBehaviour {
 
     private IEnumerator WaitQuit()
     {
-        GetComponent<ScreenFader>().Fade(1);
+        _screenFader.Fade(1);
         yield return new WaitForSeconds(_wait);
         GameManager.GetInstance().Quit();
     }
 
     public void LoadScene(string scene)
     {
+        Time.timeScale = 1;
         StartCoroutine(WaitScene(scene));
     }
 
     private IEnumerator WaitScene(string scene)
     {
-        GetComponent<ScreenFader>().Fade(1);
+        _screenFader.Fade(1, _change);
+        if (_audioFader != null)
+            _audioFader.Fade(-1);
         yield return new WaitForSeconds(_wait);
+        GameManager.GetInstance().EnableControl(true);
         GameManager.GetInstance().LoadScene(scene);
     }
 }
