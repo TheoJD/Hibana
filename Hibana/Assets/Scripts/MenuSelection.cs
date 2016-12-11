@@ -66,4 +66,19 @@ public class MenuSelection : MonoBehaviour {
         GameManager.GetInstance().EnableControl(true);
         GameManager.GetInstance().LoadScene(scene);
     }
+
+    private IEnumerator WaitSceneAndLoad(string scene)
+    {
+        _screenFader.Fade(1, _change);
+        if (_audioFader != null)
+            _audioFader.Fade(-1);
+        yield return new WaitForSeconds(2f);
+        GameManager.GetInstance().EnableControl(true);
+        GameManager.GetInstance().SaveAndLoadNextScene(scene);
+    }
+
+    public void SaveAndLoadScene(string scene)
+    {
+        StartCoroutine(WaitSceneAndLoad(scene));
+    }
 }

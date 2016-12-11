@@ -93,6 +93,8 @@ public class GameManager : MonoBehaviour {
         if (_currentHealth <= 0)
         {
             LoadGame();
+            _currentHealth = _maxHealth;
+            _loads = _maxLoads;
         }
     }
 

@@ -5,6 +5,7 @@ Droite : D
 Saut : Barre espace
 Double saut : Saut puis Barre espace
 Tirer au lance flamme : Clic gauche
+Quitter le jeu pendant la partie : ECHAP puis cliquer sur le bouton "Quitter"
 
 2- MECANIQUE DE JEU
 
