@@ -17,6 +17,7 @@ public class MenuSelection : MonoBehaviour {
 
 	public void LoadGame()
     {
+        Time.timeScale = 1;
         StartCoroutine(WaitLoadGame());
     }
 
@@ -29,6 +30,7 @@ public class MenuSelection : MonoBehaviour {
 
     public void LoadBegin()
     {
+        Time.timeScale = 1;
         StartCoroutine(WaitBegin());
     }
 
@@ -41,6 +43,7 @@ public class MenuSelection : MonoBehaviour {
 
     public void Quit()
     {
+        Time.timeScale = 1;
         StartCoroutine(WaitQuit());
     }
 

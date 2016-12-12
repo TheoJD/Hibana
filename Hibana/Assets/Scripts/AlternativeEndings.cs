@@ -34,7 +34,7 @@ public class AlternativeEndings : MonoBehaviour {
             _faunaState = State.GOOD;
             _textController.ChangeParagraph(1, _faunaGoodEnding);
         }
-        else if (beastRatio < 0.5)
+        else if (beastRatio < 0.4)
         {
             _faunaState = State.HALF;
             _textController.ChangeParagraph(1, _faunaHalfGoodEnding);
@@ -45,7 +45,7 @@ public class AlternativeEndings : MonoBehaviour {
             _floraState = State.GOOD;
             _textController.ChangeParagraph(2, _floraGoodEnding);
         }
-        else if (treeRatio < 0.4)
+        else if (treeRatio < 0.33)
         {
             _floraState = State.HALF;
             _textController.ChangeParagraph(2, _floraHalfGoodEnding);
@@ -68,9 +68,4 @@ public class AlternativeEndings : MonoBehaviour {
             _textController.ChangeParagraph(3, _halfEnding);
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
