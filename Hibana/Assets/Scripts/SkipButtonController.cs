@@ -13,7 +13,7 @@ public class SkipButtonController : MonoBehaviour {
 
     void Update()
     {
-        if (_canSkip && Input.GetKeyDown(KeyCode.Escape))
+        if (_canSkip && (Input.GetKeyDown(KeyCode.Escape)|| Input.GetMouseButtonUp(0)))
         {
             _skipButton.SetActive(true);
         }
