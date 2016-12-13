@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour {
             LoadGame();
             _currentHealth = _maxHealth;
             _loads = _maxLoads;
+            SetHUD(_hud);
         }
     }
 
