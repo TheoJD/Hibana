@@ -27,7 +27,7 @@ public class PauseGame : MonoBehaviour {
     
     public void Pause()
     {
-        GameManager.GetInstance().EnableControl();
+        GameManager.GetInstance().EnableControl(_inPause);
         _inPause = !_inPause;
         canvas.gameObject.SetActive(_inPause);
         Time.timeScale = _inPause ? 0 : 1;

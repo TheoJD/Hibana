@@ -60,7 +60,6 @@ public class BeastCharacter : MonoBehaviour {
         _animator.SetFloat("vSpeed", _rigidbody.velocity.y);
     }
 
-
     public void Move(float move, bool jump, bool attack)
     {
         //only control the player if grounded or airControl is turned on

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets._2D;
 
 public class BeastController : MonoBehaviour
 {
@@ -18,12 +17,15 @@ public class BeastController : MonoBehaviour
     private bool jump;
     private bool _isPlayerClosed = false;
     public GameObject _lifeHUD;
+    private Animator _animator;
+    private bool _inflictDamages = false;
 
     void Start()
     {
         _character = GetComponent<BeastCharacter>();
-        _nextJump = Time.time + _jumpDelay;
-        _nextAttack = Time.time + _attackDelay;
+        _animator = GetComponent<Animator>();
+        _nextJump = Time.time;
+        _nextAttack = Time.time;
         GameManager.GetInstance().NewBeast();
     }
 
@@ -39,9 +41,25 @@ public class BeastController : MonoBehaviour
         {
             _character.Move(0, false, false);
         }
+        InflictDamages();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void InflictDamages()
+    {
+        bool inAttack = _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
+        if (inAttack)
+        {
+            _inflictDamages = true;
+        }
+        else
+        {
+            if (_inflictDamages && _isPlayerClosed && !inAttack)
+                GameManager.GetInstance().TakeDamage(_attackPower);
+            _inflictDamages = false;
+        }
+    }
+
+  /*  void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
             _isPlayerClosed = true;
@@ -51,6 +69,11 @@ public class BeastController : MonoBehaviour
     {
         if (collision.gameObject.tag == GameManager.GetInstance().GetPlayerTag())
             _isPlayerClosed = false;
+    }*/
+
+    void PlayerClosed(bool closeness)
+    {
+        _isPlayerClosed = closeness;
     }
 
     void PlayerDetected(Transform playerTransform)
@@ -75,7 +98,7 @@ public class BeastController : MonoBehaviour
             bool attack = false;
             if (_nextAttack <= Time.time)
             {
-                GameManager.GetInstance().TakeDamage(_attackPower);
+                //GameManager.GetInstance().TakeDamage(_attackPower);
                 _nextAttack = Time.time + _attackDelay;
                 attack = true;
             }

@@ -53,9 +53,9 @@ public class GameManager : MonoBehaviour {
         return _controlEnable;
     }
 
-    public void EnableControl(bool enable=true)
+    public void EnableControl(bool enable)
     {
-        _controlEnable = enable && !_controlEnable;
+        _controlEnable = enable;
     }
 
     public void NewTree()
