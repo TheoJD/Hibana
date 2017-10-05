@@ -11,14 +11,14 @@ Quitter le jeu pendant la partie : ECHAP puis cliquer sur le bouton "Quitter"
 
 B- MECANIQUES DE JEU
 
-Vous incarnez Hibana, une petite fille armé d'un bras mécanique faisant office de lance-flamme.
-Vous devez sortir de la forêt.
+Vous incarnez Hibana, une petite fille armÃ© d'un bras mÃ©canique faisant office de lance-flamme.
+Vous devez sortir de la forÃªt.
 
-Pour avancer, vous devez atteindre le portail de chaque scène : la flamme blanche.
+Pour avancer, vous devez atteindre le portail de chaque scÃ¨ne : la flamme blanche.
 
-Esquiver ou brûler les ennemis qui n'attaquent qu'au corps à corps.
+Esquiver ou brÃ»ler les ennemis qui n'attaquent qu'au corps Ã  corps.
 
-Attention aux buissons, ils piquent. Les brûler les neutralisent.
+Attention aux buissons, ils piquent. Les brÃ»ler les neutralisent.
 
 Vous trouverez sur le chemin des munitions pour recharger le lance-flamme.
 
@@ -41,7 +41,7 @@ B- GAME MECHANICS
 You play Hibana, a little girl equiped with a mechanic arm acting as a flamethrower.
 You have to escape from the forest.
 
-To progress, you needto reach the portal of each scene : the white flame.
+To progress, you need to reach the portal of each scene : the white flame.
 
 Burn or stay clear of the creatures that only attack you hand-to-hand.
 
