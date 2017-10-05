@@ -3,10 +3,15 @@
 A- COMMANDES
 
 Gauche : Selon votre clavier, A en Qwerty, Q en Azerty...
+
 Droite : Selon votre clavier, D en Azerty et Qwerty...
+
 Saut : Barre espace
+
 Double saut : Saut puis Barre espace
+
 Tirer au lance-flammes : Clic gauche
+
 Quitter le jeu pendant la partie : ECHAP puis cliquer sur le bouton "Quitter"
 
 B- MECANIQUES DE JEU
@@ -30,10 +35,15 @@ Hibana est insensible aux flammes.
 A- INSTRUCTIONS
 
 Left: Depending on your keyboard, A in Qwerty, Q in Azerty...
+
 Right: Depending on your keyboard, D in Azerty and Qwerty...
+
 Jump: Spacebar
+
 Double jump : Jump then spacebar
+
 Shoot with the flamethrower : Left click
+
 Quit while in a game : ESCAPE then click on the "Quitter" button
 
 B- GAME MECHANICS
